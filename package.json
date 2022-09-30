@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "php": "^1.0.2",
+    "php-server": "^1.0.0"
+  }
+}
