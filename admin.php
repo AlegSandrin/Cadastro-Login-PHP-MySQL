@@ -38,6 +38,9 @@ if(isset($_GET['deleta'])){
             font-size: 1.1rem;
             padding: 5px;
         }
+        a{
+            text-decoration: none;
+        }
     </style>
 
 </head>
@@ -53,7 +56,7 @@ if(isset($_GET['deleta'])){
     <td style="text-align:center;"> <strong> Nome </strong> </td>
     <td style="text-align:center;"> <strong> Sobrenome </strong> </td>
     <td style="text-align:center;"> <strong> Endereço </strong> </td>
-    <td style="text-align:center;"> <strong> Deletar </strong> </td>
+    <td style="text-align:center;"> <strong></strong> </td>
 
     </tr>
 

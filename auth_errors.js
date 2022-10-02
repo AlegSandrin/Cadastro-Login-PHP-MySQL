@@ -23,7 +23,7 @@ switch(error){
     break;
 
     case ('error'):
-    errormsg = "Falha no cadastro. As senhas não coincidem.";
+    errormsg = "Ocorreu um erro no cadastro, tente novamente mais tarde.";
     break;
 
     case ('username'):
