@@ -34,6 +34,9 @@ $con = $mysqli->query($consulta) or die($mysqli->error);
         a{
             text-decoration: none;
         }
+        input::placeholder {
+        color: white;
+        }
     </style>
     <script src="functions/edit.js"></script>
 
@@ -78,7 +81,7 @@ $con = $mysqli->query($consulta) or die($mysqli->error);
             <input type="text" name="first_name" placeholder="Nome" value="<?php echo $editdados["first_name"] ?>" required>
             </div>
             <div class="input-group">
-            <input type="text" name="last_name" placeholder="Usuário" value="<?php echo $editdados["last_name"] ?>" required>
+            <input type="text" name="last_name" placeholder="Sobrenome" value="<?php echo $editdados["last_name"] ?>" required>
             </div>
             <div class="input-group">
             <input type="text" name="address" placeholder="Endereço" value="<?php echo $editdados["address"] ?>" required>
@@ -99,7 +102,7 @@ $con = $mysqli->query($consulta) or die($mysqli->error);
 </table>
 
 <div id="logout">
-<a class="login-register-text" href="#" style="float:left;" onclick="edit(0)">Adicionar</a>
+<a class="login-register-text" href="#" style="float:left;" onclick="edit(0)"><img src="src/img/add.png" width="20" heigth="20" alt="add">Adicionar</a>
 <a class="login-register-text" href="functions/logout.php" style="float:right;"><img src="src/img/logout.png" alt="logout">Desconectar</a>
 </div>
 

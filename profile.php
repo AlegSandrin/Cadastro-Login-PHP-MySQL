@@ -28,7 +28,7 @@ verifUser();
     <div class="container">
         <h1> <?php echo "Seja bem-vindo " . $_SESSION['user_usuario']; ?> </h1>
         <div id="logout">
-        <a href="functions/logout.php"><img src="src/img/logout.png" alt="logout">Desconectar</a>
+        <a class="login-register-text" href="functions/logout.php"><img src="src/img/logout.png" alt="logout">Desconectar</a>
         </div>
     </div>
 
