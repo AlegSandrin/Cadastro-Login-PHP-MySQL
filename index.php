@@ -1,17 +1,12 @@
 <?php
 
-include "conexao.php";
+include "functions/conexao.php";
+include "functions/authverif.php";
+include "functions/sessionverif.php";
 
-session_start();
+verifSession();
 
 error_reporting(0); // Desativa o relatório de erros
-
-if(isset($_SESSION['user_usuario'])){  // Se o usuário já estiver autenticado na sessão, a página levará automaticamente para a página "profile.php".
-    header("Location: profile.php");
-}
-elseif(isset($_SESSION['usuario'])){  // Se o usuário(admin) já estiver autenticado na sessão, a página levará automaticamente para a página "admin.php".
-    header("Location: admin.php");
-}
 
 if (isset($_POST['botao'])){
     $usuario = mysqli_real_escape_string($mysqli, $_POST['usuario']);

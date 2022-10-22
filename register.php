@@ -1,18 +1,12 @@
 <?php
 
-include 'conexao.php';
-include 'authverif.php';
+include "functions/conexao.php";
+include "functions/authverif.php";
+include "functions/sessionverif.php";
+
+verifSession();
 
 error_reporting(0);
-
-session_start();
-
-if(isset($_SESSION['user_usuario'])){  // Se o usuário já estiver autenticado na sessão, a página levará automaticamente para a página "profile.php".
-    header("Location: profile.php");
-}
-elseif(isset($_SESSION['usuario'])){  // Se o usuário(admin) já estiver autenticado na sessão, a página levará automaticamente para a página "admin.php".
-    header("Location: admin.php");
-}
 
 
 if (isset($_POST['submit'])){
@@ -64,7 +58,7 @@ if (isset($_POST['submit'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastrar-se</title>
 
-    <script type='text/javascript' src='auth_errors.js'></script>
+    <script type='text/javascript' src='functions/auth_errors.js'></script>
     <link rel="stylesheet" type="text/css" href="style.css">
 
 
@@ -91,7 +85,7 @@ if (isset($_POST['submit'])){
             <input type="password" name="confirmsenha" placeholder="Confirmar Senha" value="<?php echo $_POST['confirmsenha'] ?>" required>
             </div>
             <div class="input-group">
-            <input type="submit" name="submit" value="Cadastrar">
+            <input style="color: white " type="submit" name="submit" value="Cadastrar">
             </div>
             <p class="login-register-text">Já possui uma conta? <a href="index.php">Acesse sua conta aqui</a>.</p>
 

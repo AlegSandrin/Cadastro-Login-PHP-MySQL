@@ -1,12 +1,10 @@
 <?php
 
-include "conexao.php";
+include "functions/conexao.php";
+include "functions/authverif.php";
+include "functions/sessionverif.php";
 
-session_start();
-
-if(!isset($_SESSION['user_usuario'])){  // Se não houver um usuário autenticado na sessão, ele retorna para página inicial.
-    header("Location: index.php");
-}
+verifUser();
 
 ?>
 
@@ -29,7 +27,9 @@ if(!isset($_SESSION['user_usuario'])){  // Se não houver um usuário autenticad
 
     <div class="container">
         <h1> <?php echo "Seja bem-vindo " . $_SESSION['user_usuario']; ?> </h1>
-        <a href="logout.php">Desconectar</a>
+        <div id="logout">
+        <a href="functions/logout.php"><img src="src/img/logout.png" alt="logout">Desconectar</a>
+        </div>
     </div>
 
 </body>

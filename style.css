@@ -35,6 +35,7 @@ table{
 }
 
 .dashboard {
+  display:block;
   width: 700px;
   min-height: 500px;
   background: rgba(253, 253, 253, 0.8);
@@ -82,13 +83,13 @@ table{
   color: #6f5892;;
 }
 
-.container .form .input-group {
+.form .input-group {
     width: 100%;
     height: 50px;
     margin-bottom: 25px;
 }
 
-.container .form .input-group input {
+.form .input-group input {
     width: 100%;
     height: 100%;
     border: 2px solid #e7e7e7;
@@ -100,11 +101,11 @@ table{
     transition: .3s;
 }
 
-.container .form .input-group input:focus, .container .form .input-group input:valid {
+.form .input-group input:focus, .form .input-group input:valid {
     border-color: #48277a;
 }
 
-.container .form .input-group input[type=submit]{
+.form .input-group input[type=submit]{
     background: #48277a;
     border: none;
     color: white;
@@ -117,14 +118,14 @@ table{
     font-size: 1.2rem;
   }
 
-  .container .form .input-group input[type=submit]:focus{
+  .form .input-group input[type=submit]:focus{
     outline-color: transparent;
     outline-style:solid;
     box-shadow: 0 0 0 4px #5a01a7;
     transition: 0.7s;
   }
 
-  .container .form .input-group input[type=submit]:hover {
+  .form .input-group input[type=submit]:hover {
     transform: translateY(-5px);
     background-color:#b46dff;
     transition: 0.7s;
@@ -170,3 +171,32 @@ table{
     font-weight: 800;
     font-size: 1.2rem;
   }
+
+#logout {
+  transform: translateY(100%);
+  z-index: 0;
+}
+
+
+#logout img {
+  width: 25px;
+  height: 25px;
+  transform: translateY(23%);
+}
+
+#edit {
+  display:none;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  position:absolute;
+  width: 550px;
+  min-height: 25px;
+  background: rgba(144, 107, 183, 0.9);
+  border-radius: 12px;
+  box-shadow: 0 0 5px rgba(0,0,0,.3);
+  padding: 30px 60px;
+  
+}

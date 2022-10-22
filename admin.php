@@ -1,23 +1,16 @@
 <?php
 
-include "conexao.php";
+include "functions/conexao.php";
+include "functions/authverif.php";
+include "functions/sessionverif.php";
+include "functions/crud.php";
 
-session_start();
+verifAdmin();
 
-if(!isset($_SESSION['usuario'])){  // Se não houver um usuário(admin) autenticado na sessão, ele retorna para página inicial.
-    header("Location: index.php");
-}
+error_reporting(0);
 
 $consulta = "SELECT * FROM tabela";
 $con = $mysqli->query($consulta) or die($mysqli->error);
-
-if(isset($_GET['deleta'])){
-
-    $id = filter_input(INPUT_GET, 'id'); 
-    $delete = "DELETE FROM tabela WHERE id = '$id' ";
-    $deletando = mysqli_query($mysqli, $delete) or die($mysqli->error);
-   
-    }
 
 ?>
 
@@ -42,6 +35,7 @@ if(isset($_GET['deleta'])){
             text-decoration: none;
         }
     </style>
+    <script src="functions/edit.js"></script>
 
 </head>
 <body>
@@ -68,14 +62,46 @@ if(isset($_GET['deleta'])){
         <td> <?php echo $dado["first_name"]; ?> </td>
         <td> <?php echo $dado["last_name"]; ?> </td>
         <td> <?php echo $dado["address"]; ?> </td>
-        <td> <a class="login-register-text" href="admin.php?id=<?php echo $dado["id"] ?>&deleta=deletar">Deletar</a> </td>
+        <td> <a class="login-register-text" href="admin.php?id=<?php echo $dado["id"]?>&deleta">Deletar</a> | <a class="login-register-text" href="#" onclick="edit(<?php echo $dado['id']?>)">Editar</a></td>
     </tr>
 
     <?php } ?>
 
+    <div id="edit"> 
+        <div class="form">
+            <form action="admin.php" method="post" width="100%">
+
+            <p id="msg" class="login-text" style="font-size: 1.8rem;"> Alterando dados de <?php echo $editdados["id"] ." - ". $editdados["first_name"]; ?> </p>
+
+            <input style="display:none;" type="text" name="id" value="<?php echo $editdados["id"] ?>">
+            <div class="input-group">
+            <input type="text" name="first_name" placeholder="Nome" value="<?php echo $editdados["first_name"] ?>" required>
+            </div>
+            <div class="input-group">
+            <input type="text" name="last_name" placeholder="Usuário" value="<?php echo $editdados["last_name"] ?>" required>
+            </div>
+            <div class="input-group">
+            <input type="text" name="address" placeholder="Endereço" value="<?php echo $editdados["address"] ?>" required>
+            </div>
+            <div class="input-group">
+            <input type="submit" name="submit" value="Salvar Alterações">
+            </div>
+
+            </form>
+
+            <div class="input-group">
+            <input type="submit" name="cancel" value="Cancelar" onclick="cancel()">
+            </div>
+
+        </div>
+    </div>
+
 </table>
 
-<a class="login-register-text" href="logout.php">Desconectar</a>
+<div id="logout">
+<a class="login-register-text" href="#" style="float:left;" onclick="edit(0)">Adicionar</a>
+<a class="login-register-text" href="functions/logout.php" style="float:right;"><img src="src/img/logout.png" alt="logout">Desconectar</a>
+</div>
 
 </div>
 
