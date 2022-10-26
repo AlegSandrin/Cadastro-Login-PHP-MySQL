@@ -20,7 +20,7 @@ if (isset($_POST['botao'])){
     if ($admlogin->num_rows > 0)
     {
         $row = mysqli_fetch_assoc($admlogin);
-        $_SESSION['usuario'] = $row['usuario'];
+        $_SESSION = $row;
         $newURL = "admin.php";
         header("Location: $newURL");
         die();
@@ -29,7 +29,7 @@ if (isset($_POST['botao'])){
     elseif($userlogin->num_rows > 0)
     {
         $row = mysqli_fetch_assoc($userlogin);
-        $_SESSION['user_usuario'] = $row['user_usuario'];
+        $_SESSION = $row;
         $newURL = "profile.php";
         header("Location: $newURL");
         die();
@@ -52,7 +52,7 @@ if (isset($_POST['botao'])){
     <title>Autenticação</title>
 
     <link rel="stylesheet" type="text/css" href="style.css">
-    <script type='text/javascript' src='auth_errors.js'></script>
+    <script type='text/javascript' src='functions/auth_errors.js'></script>
 
 </head>
 <body>

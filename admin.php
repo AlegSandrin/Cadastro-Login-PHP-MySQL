@@ -50,6 +50,7 @@ $con = $mysqli->query($consulta) or die($mysqli->error);
     <p class="login-text"> Dashboard </p>
 
     <tr>
+    <td style="text-align:center;"> <strong> ID </strong> </td>
     <td style="text-align:center;"> <strong> Nome </strong> </td>
     <td style="text-align:center;"> <strong> Sobrenome </strong> </td>
     <td style="text-align:center;"> <strong> Endereço </strong> </td>
@@ -62,6 +63,7 @@ $con = $mysqli->query($consulta) or die($mysqli->error);
     ?>
 
     <tr>
+        <td> <?php echo $dado["id"]; ?> </td>
         <td> <?php echo $dado["first_name"]; ?> </td>
         <td> <?php echo $dado["last_name"]; ?> </td>
         <td> <?php echo $dado["address"]; ?> </td>
